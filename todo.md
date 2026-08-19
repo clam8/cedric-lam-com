@@ -86,3 +86,9 @@
 - [x] ‘I absorb broadly, connect deeply, and build thoughtfully.’에 Averia Libre를 적용한다.
 - [x] 선언문의 기울임·굵기 대비가 Averia Libre에서도 자연스러운지 조정한다.
 - [x] 데스크톱과 모바일에서 선언문의 가독성과 이름과의 연결감을 확인한다.
+
+## 워드마크 대비 강화
+
+- [x] 히어로 소개 문장을 한 단계 더 축소한다.
+- [x] 개인 선언문을 두 단계 더 축소한다.
+- [x] 데스크톱과 모바일에서 새 대비와 줄바꿈을 확인한다.

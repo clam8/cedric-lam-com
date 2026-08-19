@@ -257,7 +257,7 @@ export default function Home() {
               <span className="h-2 w-2 rounded-full bg-[#6E70A8]" /> Cedric Lam · Studio
             </div>
             <h1 className="wordmark-averia text-[clamp(4.45rem,10.8vw,11.15rem)] leading-[0.83] tracking-[-0.075em] text-[#202435]">Cedric<br />Lam<span className="text-[#6E70A8]">.</span></h1>
-            <p className="mt-10 max-w-2xl font-display text-[clamp(1.35rem,2.15vw,2.3rem)] leading-[1.24] tracking-[-0.03em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
+            <p className="mt-10 max-w-2xl font-display text-[clamp(1.2rem,1.9vw,2.08rem)] leading-[1.26] tracking-[-0.025em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
               <button onClick={() => scrollToRoom("studio-map")} className="group inline-flex items-center gap-3 border-b border-[#202435] pb-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-[#6E70A8]">
                 Enter the studio <ArrowDownRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1" />
@@ -271,10 +271,10 @@ export default function Home() {
 
       <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-24 md:py-32 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
-          <p className="wordmark-averia text-[clamp(2.7rem,5.8vw,6.6rem)] leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
+          <p className="wordmark-averia text-[clamp(2.25rem,5vw,5.5rem)] leading-[1.14] tracking-[-0.045em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-0 mt-4 flex items-center gap-3 sm:ml-[12%] sm:gap-5 md:mt-7">
             <span className="h-7 w-7 shrink-0 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10 sm:h-10 sm:w-10" />
-            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.45rem,8vw,2.7rem)] leading-[1.12] tracking-[-0.055em] sm:text-[clamp(2.7rem,5.8vw,6.6rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
+            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.25rem,7vw,2.3rem)] leading-[1.14] tracking-[-0.045em] sm:text-[clamp(2.25rem,5vw,5.5rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
           </div>
         </motion.div>
       </section>
