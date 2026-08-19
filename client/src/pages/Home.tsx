@@ -401,12 +401,10 @@ export default function Home() {
 
       <section id="method" data-room className="relative bg-white py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
-          <motion.div {...reveal} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <div>
-              <RouteStamp index="05" room="Method" next="Margin notes" />
-              <h2 className="section-title">From ambiguity to something real.</h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-[#615A69]">The exact tools change. The underlying movement is fairly consistent: understand the human situation, find the structure inside it, and make the next idea tangible enough to learn from.</p>
+          <motion.div {...reveal} className="max-w-4xl">
+            <RouteStamp index="05" room="Method" next="Margin notes" />
+            <h2 className="section-title max-w-[760px]">From ambiguity to something real.</h2>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-[#615A69]">The exact tools change. The underlying movement is fairly consistent: understand the human situation, find the structure inside it, and make the next idea tangible enough to learn from.</p>
           </motion.div>
           <div className="relative mt-16 grid gap-4 md:grid-cols-5 md:gap-0">
             <svg aria-hidden="true" viewBox="0 0 1000 120" preserveAspectRatio="none" className="pointer-events-none absolute left-0 top-2 hidden h-[116px] w-full md:block">
