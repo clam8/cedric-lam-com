@@ -271,10 +271,10 @@ export default function Home() {
 
       <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-24 md:py-32 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
-          <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="font-medium text-[#4E4F80]">broadly</em>,<br />connect <em className="font-medium text-[#4E4F80]">deeply</em>,</p>
+          <p className="wordmark-averia text-[clamp(2.7rem,5.8vw,6.6rem)] leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-0 mt-4 flex items-center gap-3 sm:ml-[12%] sm:gap-5 md:mt-7">
             <span className="h-7 w-7 shrink-0 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10 sm:h-10 sm:w-10" />
-            <p className="whitespace-nowrap font-display text-[clamp(1.45rem,8vw,2.7rem)] font-light leading-[1.12] tracking-[-0.055em] sm:text-[clamp(2.7rem,5.8vw,6.6rem)]">and build <em className="font-medium text-[#4E4F80]">thoughtfully.</em></p>
+            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.45rem,8vw,2.7rem)] leading-[1.12] tracking-[-0.055em] sm:text-[clamp(2.7rem,5.8vw,6.6rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
           </div>
         </motion.div>
       </section>

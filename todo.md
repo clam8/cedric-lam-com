@@ -80,3 +80,9 @@
 - [x] 상단 히어로의 큰 Cedric Lam 워드마크를 소폭 키운다.
 - [x] 히어로 소개 문장을 소폭 줄인다.
 - [x] 데스크톱과 모바일에서 이름·설명 비율을 확인한다.
+
+## 개인 선언문 타이포그래피 실험
+
+- [x] ‘I absorb broadly, connect deeply, and build thoughtfully.’에 Averia Libre를 적용한다.
+- [x] 선언문의 기울임·굵기 대비가 Averia Libre에서도 자연스러운지 조정한다.
+- [x] 데스크톱과 모바일에서 선언문의 가독성과 이름과의 연결감을 확인한다.
