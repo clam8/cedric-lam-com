@@ -227,7 +227,7 @@ export default function Home() {
       </header>
 
       <aside aria-label="Studio navigation" className="fixed left-0 top-1/2 z-30 hidden h-[440px] w-[190px] -translate-y-1/2 xl:block">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(251,252,255,0.72)_18%,rgba(251,252,255,0.92)_50%,rgba(251,252,255,0.72)_82%,transparent_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_150px_220px_at_0%_50%,rgba(251,252,255,0.92)_0%,rgba(251,252,255,0.72)_32%,rgba(251,252,255,0.30)_60%,transparent_100%)]" />
         <div className="relative flex h-full items-center pl-7">
           <div>
             <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#697386]">Studio route</p>
