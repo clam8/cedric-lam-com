@@ -343,7 +343,7 @@ export default function Home() {
             <motion.div {...reveal} className="relative border-y border-[#F8FAFC]/15">
               <div aria-hidden="true" className="absolute bottom-8 left-[42px] top-8 w-px bg-[#FBF7AC]/55" />
               {projects.map((project, index) => (
-                <button key={project.name} onClick={() => setActiveProject(index)} className={`group mx-3 flex w-[calc(100%-1.5rem)] items-start gap-4 px-3 py-5 text-left transition-colors ${index < projects.length - 1 ? "border-b border-[#F8FAFC]/15" : ""} ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
+                <button key={project.name} onClick={() => setActiveProject(index)} className={`group mx-3 flex w-[calc(100%-1.5rem)] items-start gap-4 px-3 py-5 text-left transition-colors ${index < projects.length - 1 ? "border-b border-[#F8FAFC]/15" : ""} ${activeProject === index ? `bg-[#FBF7AC]/[0.12] text-[#F8FAFC] ${index === projects.length - 1 ? "-mb-px" : ""}` : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
                   <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#FBF7AC] bg-[#FBF7AC] text-[#111217]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
                     <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#FBF7AC]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
@@ -415,7 +415,7 @@ export default function Home() {
               const active = index === activeMethod;
               return (
                 <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={step.title} onClick={() => setActiveMethod(index)} className={`relative min-h-[176px] px-5 py-6 text-left transition-colors duration-200 md:min-h-[270px] md:px-6 md:pt-[112px] ${active ? "rounded-[10px] bg-transparent ring-1 ring-[#202435]/12 text-[#615A69]" : "text-[#615A69] hover:text-[#292330]"}`} aria-pressed={active}>
-                  <span className={`flex h-8 w-8 items-center justify-center rounded-full border font-mono text-[10px] md:absolute md:left-1/2 md:top-[50px] md:-translate-x-1/2 ${active ? "border-[#111217] bg-[#111217] text-[#FBF7AC]" : "border-[#9891A0] bg-white text-[#9891A0]"}`}>0{index + 1}</span>
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full border font-mono text-[10px] font-semibold md:absolute md:left-1/2 md:top-[50px] md:-translate-x-1/2 ${active ? "border-[#111217] bg-[#111217] text-[#FBF7AC]" : "border-[#9891A0] bg-white text-[#9891A0]"}`}>0{index + 1}</span>
                   <span className="mt-6 block font-display text-2xl tracking-[-0.035em] md:mt-0">{step.title}</span>
                   <span className="mt-4 block text-sm leading-6 text-[#9891A0] transition-colors">{step.body}</span>
                 </motion.button>
@@ -438,9 +438,9 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative border-t border-[#292330]/15">
+            <div className="relative border-t-2 border-[#202435]/35">
               {visibleNotes.map((note, index) => (
-                <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="grid grid-cols-[100px_1fr] gap-4 border-b border-[#292330]/15 py-7 sm:grid-cols-[125px_1fr]">
+                <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="grid grid-cols-[100px_1fr] gap-4 border-b-2 border-[#202435]/35 py-7 sm:grid-cols-[125px_1fr]">
                   <span className="pt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[#6E70A8]"><span className="mr-2 text-[#9891A0]">0{index + 1}</span>{note.category}</span>
                   <p className="font-display text-[clamp(1.35rem,2vw,1.8rem)] font-light leading-[1.35] tracking-[-0.03em] text-[#292330]">{note.text}</p>
                   {activeNoteCategory !== "All" && (
