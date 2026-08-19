@@ -212,7 +212,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-[#202435]/10 bg-[#FBFCFF]/88 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-8 lg:px-12">
           <button onClick={() => scrollToRoom("welcome")} className="group flex items-center text-left" aria-label="Back to the studio entrance">
-            <span className="wordmark-exo text-[17px] tracking-[0.02em] text-[#202435]">Cedric Lam<span className="text-[#FBF7AC]">.</span></span>
+            <span className="wordmark-averia text-[18px] tracking-[0.01em] text-[#202435]">Cedric Lam<span className="text-[#FBF7AC]">.</span></span>
           </button>
           <div className="hidden items-center gap-6 lg:flex">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8A94A6]">Open studio / Taipei + Hong Kong</span>
