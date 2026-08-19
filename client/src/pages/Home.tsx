@@ -182,6 +182,7 @@ export default function Home() {
   const [activeLayer, setActiveLayer] = useState(0);
   const [activeMethod, setActiveMethod] = useState(0);
   const [activeNoteCategory, setActiveNoteCategory] = useState("All");
+  const [expandedNoteCategory, setExpandedNoteCategory] = useState<string | null>(null);
   const isDarkRoute = activeRoom === "workbench" || activeRoom === "hello";
   const { scrollYProgress } = useScroll();
   const progressScale = useSpring(scrollYProgress, { stiffness: 130, damping: 24, mass: 0.3 });
@@ -289,12 +290,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-32 md:py-40 xl:pl-28">
+      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-40 md:py-48 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
-          <p className="wordmark-averia text-[clamp(1.8rem,4.1vw,4.5rem)] leading-[1.16] tracking-[-0.04em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
+          <p className="wordmark-averia text-[clamp(1.45rem,3.45vw,3.8rem)] leading-[1.18] tracking-[-0.035em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-0 mt-4 flex items-center gap-3 sm:ml-[12%] sm:gap-5 md:mt-7">
             <span className="h-7 w-7 shrink-0 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10 sm:h-10 sm:w-10" />
-            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.05rem,6vw,1.85rem)] leading-[1.16] tracking-[-0.04em] sm:text-[clamp(1.8rem,4.1vw,4.5rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
+            <p className="wordmark-averia whitespace-nowrap text-[clamp(0.95rem,5vw,1.55rem)] leading-[1.18] tracking-[-0.035em] sm:text-[clamp(1.45rem,3.45vw,3.8rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
           </div>
         </motion.div>
       </section>
@@ -434,30 +435,35 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-[#615A69]">Not a roadmap. Just recurring questions that return in conversations, while running, over coffee, or whenever a new product idea begins to form.</p>
               <div className="mt-9 flex flex-wrap gap-x-4 gap-y-3">
                 {["All", ...notes.map((note) => note.category)].map((category) => (
-                  <button key={category} onClick={() => setActiveNoteCategory(category)} className={`border-b pb-1 font-mono text-[10px] uppercase tracking-[0.13em] transition-colors ${activeNoteCategory === category ? "border-[#6E70A8] text-[#4E4F80]" : "border-transparent text-[#9891A0] hover:text-[#615A69]"}`} aria-pressed={activeNoteCategory === category} aria-expanded={activeNoteCategory === category && category !== "All"}>{category}</button>
+                  <button key={category} onClick={() => { setActiveNoteCategory(category); setExpandedNoteCategory(category === "All" ? null : category); }} className={`border-b pb-1 font-mono text-[10px] uppercase tracking-[0.13em] transition-colors ${activeNoteCategory === category ? "border-[#6E70A8] text-[#4E4F80]" : "border-transparent text-[#9891A0] hover:text-[#615A69]"}`} aria-pressed={activeNoteCategory === category} aria-expanded={activeNoteCategory === category && category !== "All"}>{category}</button>
                 ))}
               </div>
             </div>
             <div className="relative border-t-2 border-[#202435]/35">
-              {visibleNotes.map((note, index) => (
-                <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="grid grid-cols-[100px_1fr] gap-4 border-b-2 border-[#202435]/35 py-7 sm:grid-cols-[125px_1fr]">
-                  <span className="pt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[#6E70A8]"><span className="mr-2 text-[#9891A0]">0{index + 1}</span>{note.category}</span>
-                  <p className="font-display text-[clamp(1.35rem,2vw,1.8rem)] font-light leading-[1.35] tracking-[-0.03em] text-[#292330]">{note.text}</p>
-                  {activeNoteCategory !== "All" && (
-                    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.24 }} className="col-start-2 mt-1 border-t border-[#202435]/12 pt-5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#4E4F80]">What’s broken</p>
-                      <ul className="mt-3 space-y-3">
-                        {note.breaks.map((item, breakIndex) => (
-                          <li key={item} className="grid grid-cols-[18px_1fr] gap-3 text-sm leading-6 text-[#697386]">
-                            <span className="pt-[2px] font-mono text-[10px] text-[#6E70A8]">0{breakIndex + 1}</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
-                </motion.article>
-              ))}
+              {visibleNotes.map((note, index) => {
+                const isExpanded = activeNoteCategory !== "All" || expandedNoteCategory === note.category;
+                return (
+                  <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="border-b-2 border-[#202435]/35">
+                    <button type="button" onClick={() => { if (activeNoteCategory === "All") setExpandedNoteCategory((current) => current === note.category ? null : note.category); }} className={`grid w-full grid-cols-[100px_1fr] gap-4 py-7 text-left transition-colors sm:grid-cols-[125px_1fr] ${activeNoteCategory === "All" ? "cursor-pointer hover:bg-[#F1F4FA]/65" : "cursor-default"}`} aria-expanded={isExpanded}>
+                      <span className="pt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[#6E70A8]"><span className="mr-2 text-[#9891A0]">0{index + 1}</span>{note.category}</span>
+                      <span className="font-display text-[clamp(1.35rem,2vw,1.8rem)] font-light leading-[1.35] tracking-[-0.03em] text-[#292330]">{note.text}</span>
+                    </button>
+                    {isExpanded && (
+                      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.24 }} className="ml-[116px] mb-7 border-t border-[#202435]/12 pt-5 sm:ml-[141px]">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#4E4F80]">What’s broken</p>
+                        <ul className="mt-3 space-y-3">
+                          {note.breaks.map((item, breakIndex) => (
+                            <li key={item} className="grid grid-cols-[18px_1fr] gap-3 text-sm leading-6 text-[#697386]">
+                              <span className="pt-[2px] font-mono text-[10px] text-[#6E70A8]">0{breakIndex + 1}</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </motion.article>
+                );
+              })}
             </div>
           </motion.div>
         </div>
@@ -476,9 +482,9 @@ export default function Home() {
               <a href="https://www.linkedin.com/in/lamcedric/" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 border-b border-[#F2EEE6]/50 pb-2 font-mono text-[11px] uppercase tracking-[0.13em] transition-colors hover:border-[#6E70A8] hover:text-[#B5B6DD]"><ExternalLink className="h-4 w-4" /> LinkedIn</a>
             </div>
           </motion.div>
-          <motion.div {...reveal} className="mt-24 flex items-end justify-between gap-5 border-t border-[#F2EEE6]/15 pt-8">
-            <div className="wordmark-averia text-[clamp(4.5rem,11vw,11rem)] leading-[0.74] tracking-[-0.085em]">Cedric<br />Lam<span className="text-[#FBF7AC]">.</span></div>
-            <button onClick={() => scrollToRoom("welcome")} className="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#F2EEE6]/55 transition-colors hover:text-[#B5B6DD]"><Sparkles className="h-3.5 w-3.5" /> Replay the studio</button>
+          <motion.div {...reveal} className="mt-24 flex flex-col items-end gap-8 border-t border-[#F2EEE6]/15 pt-8 sm:flex-row sm:items-end sm:justify-between">
+            <button onClick={() => scrollToRoom("welcome")} className="order-2 mb-1 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#F2EEE6]/55 transition-colors hover:text-[#B5B6DD] sm:order-1"><Sparkles className="h-3.5 w-3.5" /> Replay the studio</button>
+            <div className="wordmark-averia order-1 ml-auto whitespace-nowrap text-right text-[clamp(3.2rem,8.8vw,9.2rem)] leading-[0.82] tracking-[-0.075em] sm:order-2">Cedric Lam<span className="text-[#FBF7AC]">.</span></div>
           </motion.div>
         </div>
       </section>
