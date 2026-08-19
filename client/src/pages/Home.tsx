@@ -409,15 +409,15 @@ export default function Home() {
           </motion.div>
           <div className="relative mt-16 grid gap-4 md:grid-cols-5 md:gap-0">
             <svg aria-hidden="true" viewBox="0 0 1000 120" preserveAspectRatio="none" className="pointer-events-none absolute left-0 top-2 hidden h-[116px] w-full md:block">
-              <path d="M 100 60 C 230 25, 310 95, 500 60 S 770 25, 900 60" fill="none" stroke="rgba(110,112,168,0.42)" strokeWidth="1.25" vectorEffect="non-scaling-stroke" />
+              <path d="M 100 60 C 170 40, 250 40, 300 60 S 430 80, 500 60 S 630 40, 700 60 S 830 80, 900 60" fill="none" stroke="rgba(110,112,168,0.42)" strokeWidth="1.25" vectorEffect="non-scaling-stroke" />
             </svg>
             {methodSteps.map((step, index) => {
               const active = index === activeMethod;
               return (
-                <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={step.title} onClick={() => setActiveMethod(index)} className={`relative min-h-[176px] px-5 py-6 text-left transition-colors duration-200 md:min-h-[270px] md:px-6 md:pt-[112px] ${active ? "bg-[#111217] text-[#FBF7AC]" : "text-[#615A69] hover:text-[#292330]"}`} aria-pressed={active}>
-                  <span className={`flex h-8 w-8 items-center justify-center rounded-full border font-mono text-[10px] md:absolute md:left-1/2 md:top-[50px] md:-translate-x-1/2 ${active ? "border-[#FBF7AC] bg-[#111217] text-[#FBF7AC]" : "border-[#9891A0] bg-white text-[#9891A0]"}`}>0{index + 1}</span>
+                <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={step.title} onClick={() => setActiveMethod(index)} className={`relative min-h-[176px] px-5 py-6 text-left transition-colors duration-200 md:min-h-[270px] md:px-6 md:pt-[112px] ${active ? "rounded-[10px] bg-transparent ring-1 ring-[#202435]/12 text-[#615A69]" : "text-[#615A69] hover:text-[#292330]"}`} aria-pressed={active}>
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full border font-mono text-[10px] md:absolute md:left-1/2 md:top-[50px] md:-translate-x-1/2 ${active ? "border-[#111217] bg-[#111217] text-[#FBF7AC]" : "border-[#9891A0] bg-white text-[#9891A0]"}`}>0{index + 1}</span>
                   <span className="mt-6 block font-display text-2xl tracking-[-0.035em] md:mt-0">{step.title}</span>
-                  <span className={`mt-4 block text-sm leading-6 transition-colors ${active ? "text-[#FBF7AC]/72" : "text-[#9891A0]"}`}>{step.body}</span>
+                  <span className="mt-4 block text-sm leading-6 text-[#9891A0] transition-colors">{step.body}</span>
                 </motion.button>
               );
             })}
