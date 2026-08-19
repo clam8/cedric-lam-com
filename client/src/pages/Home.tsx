@@ -226,20 +226,22 @@ export default function Home() {
         </div>
       </header>
 
-      <aside aria-label="Studio navigation" className="fixed left-7 top-[54%] z-30 hidden -translate-y-1/2 lg:block">
-        <div className="relative border-l border-[#202435]/30 pl-4">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#8A94A6]">Studio route</p>
-          <div className="relative flex flex-col gap-[18px]">
-          <div className="absolute left-[3px] top-[9px] h-[calc(100%-18px)] border-l border-[#202435]/15" />
-          {roomLinks.map((room) => {
-            const isActive = activeRoom === room.id;
-            return (
-              <button key={room.id} onClick={() => scrollToRoom(room.id)} className="group relative flex items-center gap-3 text-left" aria-current={isActive ? "location" : undefined}>
-                <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? "scale-[1.45] border-[#6E70A8] bg-[#6E70A8]" : "border-[#8A94A6] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
-                <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? "text-[#202435]" : "text-[#8A94A6] group-hover:text-[#697386]"}`}><span className="mr-2 opacity-65">{room.index}</span>{room.label}</span>
-              </button>
-            );
-          })}
+      <aside aria-label="Studio navigation" className="fixed left-0 top-1/2 z-30 hidden h-[440px] w-[190px] -translate-y-1/2 xl:block">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(251,252,255,0.72)_18%,rgba(251,252,255,0.92)_50%,rgba(251,252,255,0.72)_82%,transparent_100%)]" />
+        <div className="relative flex h-full items-center pl-7">
+          <div>
+            <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#697386]">Studio route</p>
+            <div className="flex flex-col gap-[18px]">
+              {roomLinks.map((room) => {
+                const isActive = activeRoom === room.id;
+                return (
+                  <button key={room.id} onClick={() => scrollToRoom(room.id)} className="group relative flex items-center gap-3 text-left" aria-current={isActive ? "location" : undefined}>
+                    <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? "scale-[1.45] border-[#6E70A8] bg-[#6E70A8] shadow-[0_0_0_3px_rgba(251,252,255,0.76)]" : "border-[#697386] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
+                    <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? "text-[#202435]" : "text-[#697386] group-hover:text-[#202435]"}`}><span className="mr-2 opacity-65">{room.index}</span>{room.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </aside>
