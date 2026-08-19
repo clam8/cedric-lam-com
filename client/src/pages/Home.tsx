@@ -256,8 +256,8 @@ export default function Home() {
             <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#697386]">
               <span className="h-2 w-2 rounded-full bg-[#6E70A8]" /> Cedric Lam · Studio
             </div>
-            <h1 className="wordmark-averia text-[clamp(4.2rem,10.4vw,10.75rem)] leading-[0.83] tracking-[-0.075em] text-[#202435]">Cedric<br />Lam<span className="text-[#6E70A8]">.</span></h1>
-            <p className="mt-10 max-w-2xl font-display text-[clamp(1.45rem,2.4vw,2.55rem)] leading-[1.2] tracking-[-0.035em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
+            <h1 className="wordmark-averia text-[clamp(4.45rem,10.8vw,11.15rem)] leading-[0.83] tracking-[-0.075em] text-[#202435]">Cedric<br />Lam<span className="text-[#6E70A8]">.</span></h1>
+            <p className="mt-10 max-w-2xl font-display text-[clamp(1.35rem,2.15vw,2.3rem)] leading-[1.24] tracking-[-0.03em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
               <button onClick={() => scrollToRoom("studio-map")} className="group inline-flex items-center gap-3 border-b border-[#202435] pb-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-[#6E70A8]">
                 Enter the studio <ArrowDownRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1" />
