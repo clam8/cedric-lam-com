@@ -2,7 +2,7 @@
  * Open Studio Atlas — global visual language: cool white, studio yellow, dark ink, studio verdigris.
  * Maintain decisive room-to-room contrast, editorial whitespace, and cartographic depth.
  */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Exo:wght@500&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:wght@400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Exo:wght@500&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -13,6 +13,7 @@
   --font-display: "Sora", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
   --font-wordmark: "Exo", Arial, sans-serif;
+  --font-wordmark-display: "Averia Libre", Georgia, serif;
   --radius-sm: 0.35rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -78,6 +79,7 @@
   .section-kicker-dark { @apply text-[#F8FAFC]/55; }
   .section-title { @apply font-display text-[clamp(2.9rem,5.2vw,5.8rem)] font-medium leading-[0.94] tracking-[-0.06em] text-[#202435]; }
   .wordmark-exo { font-family: var(--font-wordmark); font-weight: 500; }
+  .wordmark-averia { font-family: var(--font-wordmark-display); font-weight: 400; }
   .atlas-field {
     background-image:
       linear-gradient(rgba(32,36,53,0.035) 1px, transparent 1px),
