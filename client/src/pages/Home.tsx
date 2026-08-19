@@ -302,13 +302,13 @@ export default function Home() {
             <motion.div {...reveal} className="relative border-t border-[#F8FAFC]/15">
               <div aria-hidden="true" className="absolute bottom-8 left-[18px] top-8 w-px bg-[#FBF7AC]/55" />
               {projects.map((project, index) => (
-                <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#F8FAFC]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC] text-[#111217]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
-                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#111217] bg-[#111217] text-[#FBF7AC]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
+                <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#F8FAFC]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
+                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#FBF7AC] bg-[#FBF7AC] text-[#111217]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
-                    <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#4E4F80]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
+                    <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#FBF7AC]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
                     <span className="mt-1 block font-display text-xl leading-6 tracking-[-0.025em]">{project.title}</span>
                   </span>
-                  <CircleArrowRight className={`mt-3 h-4 w-4 shrink-0 transition-all duration-200 ${activeProject === index ? "text-[#4E4F80]" : "text-[#F8FAFC]/45 group-hover:translate-x-1"}`} />
+                  <CircleArrowRight className={`mt-3 h-4 w-4 shrink-0 transition-all duration-200 ${activeProject === index ? "text-[#FBF7AC]" : "text-[#F8FAFC]/45 group-hover:translate-x-1"}`} />
                 </button>
               ))}
             </motion.div>
@@ -331,24 +331,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="layers" data-room className="atlas-field-dark relative overflow-hidden bg-[#6E70A8] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
-        <div aria-hidden="true" className="absolute -right-20 top-8 h-[34rem] w-[34rem] rounded-full border border-[#FBF7AC]/58" />
-        <div aria-hidden="true" className="absolute right-[10%] top-[23%] h-56 w-56 rounded-full border border-[#F8FAFC]/25" />
+      <section id="layers" data-room className="atlas-field relative overflow-hidden bg-[#FBFCFF] py-24 text-[#202435] md:py-32 xl:pl-40">
+        <div aria-hidden="true" className="absolute -right-20 top-8 h-[34rem] w-[34rem] rounded-full border border-[#6E70A8]/30" />
+        <div aria-hidden="true" className="absolute right-[10%] top-[23%] h-56 w-56 rounded-full border border-[#202435]/12" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
             <div className="max-w-md">
-              <RouteStamp index="04" room="Layers" next="Method" dark />
-              <h2 className="section-title text-[#F2EEE6]">What I carry forward.</h2>
-              <p className="mt-6 text-lg leading-8 text-[#F2EEE6]/60">The parts of me do not sit in separate boxes. They overlap — cultures, technical depth, business, design, values, music, movement — and become the lens I bring to new problems.</p>
-              <div className="mt-12 font-mono text-[10px] leading-6 uppercase tracking-[0.14em] text-[#F2EEE6]/45">Hong Kong <span className="px-1 text-[#6E70A8]">→</span> Canada <span className="px-1 text-[#6E70A8]">→</span> Korea / UK <span className="px-1 text-[#6E70A8]">→</span> France / Singapore <span className="px-1 text-[#6E70A8]">→</span> Taiwan</div>
+              <RouteStamp index="04" room="Layers" next="Method" />
+              <h2 className="section-title">What I carry forward.</h2>
+              <p className="mt-6 text-lg leading-8 text-[#697386]">The parts of me do not sit in separate boxes. They overlap — cultures, technical depth, business, design, values, music, movement — and become the lens I bring to new problems.</p>
+              <div className="mt-12 font-mono text-[10px] leading-6 uppercase tracking-[0.14em] text-[#697386]">Hong Kong <span className="px-1 text-[#6E70A8]">→</span> Canada <span className="px-1 text-[#6E70A8]">→</span> Korea / UK <span className="px-1 text-[#6E70A8]">→</span> France / Singapore <span className="px-1 text-[#6E70A8]">→</span> <span className="text-[#202435]">Taiwan</span></div>
             </div>
             <div className="relative pt-2 lg:pt-7">
               {layers.map((layer, index) => {
                 const isSelected = activeLayer === index;
                 return (
-                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#F2EEE6]/15 px-5 py-5 text-left transition-all duration-200 sm:px-7 ${isSelected ? "bg-[#F2EEE6]/13" : "bg-[#F2EEE6]/[0.035] hover:bg-[#F2EEE6]/[0.075]"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
-                    <span className="flex items-center gap-4"><span className="font-mono text-[10px] tracking-[0.1em] text-[#B5B6DD]">0{index + 1}</span><Plus className={`h-4 w-4 transition-transform duration-200 ${isSelected ? "rotate-45 text-[#B5B6DD]" : "text-[#6E70A8]"}`} /><span className="font-display text-xl tracking-[-0.025em]">{layer.title}</span></span>
-                    <span className={`mt-2 block pl-8 text-sm leading-6 ${isSelected ? "text-[#F2EEE6]/90" : "text-[#F2EEE6]/55"}`}>{isSelected ? layer.expanded : layer.note}</span>
+                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#202435]/12 px-5 py-5 text-left transition-all duration-200 sm:px-7 ${isSelected ? "bg-[#F1F4FA]" : "bg-white/55 hover:bg-white"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
+                    <span className="flex items-center gap-4"><span className="font-mono text-[10px] tracking-[0.1em] text-[#6E70A8]">0{index + 1}</span><Plus className={`h-4 w-4 transition-transform duration-200 ${isSelected ? "rotate-45 text-[#4E4F80]" : "text-[#6E70A8]"}`} /><span className="font-display text-xl tracking-[-0.025em]">{layer.title}</span></span>
+                    <span className={`mt-2 block pl-8 text-sm leading-6 ${isSelected ? "text-[#202435]/85" : "text-[#697386]"}`}>{isSelected ? layer.expanded : layer.note}</span>
                   </motion.button>
                 );
               })}
@@ -357,7 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="method" data-room className="atlas-field relative bg-[#FBF7AC] py-24 md:py-32 xl:pl-40">
+      <section id="method" data-room className="relative bg-white py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
@@ -408,7 +408,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="hello" data-room className="atlas-field-dark relative isolate overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
+      <section id="hello" data-room className="relative isolate overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
         <div className="absolute right-[-5%] top-[-12%] h-[440px] w-[440px] rounded-full border border-[#6E70A8]/50" />
         <div className="absolute right-[10%] top-[13%] h-[18px] w-[18px] rounded-full bg-[#6E70A8]" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
