@@ -248,8 +248,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#F1F4FA] py-24 md:py-32 xl:pl-28">
-        <div className="absolute -left-12 top-8 h-52 w-52 rounded-full border border-[#6E70A8]/30" />
+      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-24 md:py-32 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
           <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="font-medium text-[#4E4F80]">broadly</em>,<br />connect <em className="font-medium text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-[12%] mt-4 flex items-end gap-5 md:mt-7">
@@ -259,7 +258,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="studio-map" data-room className="atlas-field relative bg-[#FBFCFF] py-24 md:py-32 xl:pl-40">
+      <section id="studio-map" data-room className="relative bg-white py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 border-b border-[#292330]/15 pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
@@ -289,38 +288,39 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="workbench" data-room className="atlas-field relative overflow-hidden bg-[#FBFCFF] py-24 md:py-32 xl:pl-40">
-        <div aria-hidden="true" className="absolute -right-14 top-20 h-72 w-72 rounded-full border border-[#6E70A8]/20" />
-        <div aria-hidden="true" className="absolute right-20 top-52 h-40 w-40 rounded-full border border-[#292330]/10" />
+      <section id="workbench" data-room className="relative overflow-hidden bg-[#111217] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
+        <div aria-hidden="true" className="absolute -right-14 top-20 h-72 w-72 rounded-full border border-[#FBF7AC]/35" />
+        <div aria-hidden="true" className="absolute right-20 top-52 h-40 w-40 rounded-full border border-[#6E70A8]/65" />
+        <div aria-hidden="true" className="absolute left-[44%] top-16 h-px w-[36rem] rotate-[23deg] bg-[#FBF7AC]/25" />
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="max-w-3xl">
-            <RouteStamp index="03" room="Workbench" next="Layers" />
-            <h2 className="section-title">Things I’ve tried to improve.</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#615A69]">I tend to begin with something in ordinary life that feels unnecessarily difficult, unhealthy, disempowering, or wasteful — and ask whether a product could make it better.</p>
+            <RouteStamp index="03" room="Workbench" next="Layers" dark />
+            <h2 className="section-title text-[#F8FAFC]">Things I’ve tried to improve.</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#F8FAFC]/62">I tend to begin with something in ordinary life that feels unnecessarily difficult, unhealthy, disempowering, or wasteful — and ask whether a product could make it better.</p>
           </motion.div>
           <div className="mt-14 grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
-            <motion.div {...reveal} className="relative border-t border-[#292330]/15">
-              <div aria-hidden="true" className="absolute bottom-8 left-[18px] top-8 w-px bg-[#6E70A8]/35" />
+            <motion.div {...reveal} className="relative border-t border-[#F8FAFC]/15">
+              <div aria-hidden="true" className="absolute bottom-8 left-[18px] top-8 w-px bg-[#FBF7AC]/55" />
               {projects.map((project, index) => (
-                <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#292330]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#E9E3D6]/75" : "hover:bg-[#E9E3D6]/40"}`} aria-pressed={activeProject === index}>
-                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-[#FBFCFF] font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#6E70A8] text-[#4E4F80]" : "border-[#8A94A6] text-[#8A94A6]"}`}>0{index + 1}</span>
+                <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#F8FAFC]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC] text-[#111217]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
+                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#111217] bg-[#111217] text-[#FBF7AC]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
-                    <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#6E70A8]" : "text-[#9891A0]"}`}>{project.tag}</span>
+                    <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#4E4F80]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
                     <span className="mt-1 block font-display text-xl leading-6 tracking-[-0.025em]">{project.title}</span>
                   </span>
-                  <CircleArrowRight className={`mt-3 h-4 w-4 shrink-0 transition-all duration-200 ${activeProject === index ? "text-[#6E70A8]" : "text-[#9891A0] group-hover:translate-x-1"}`} />
+                  <CircleArrowRight className={`mt-3 h-4 w-4 shrink-0 transition-all duration-200 ${activeProject === index ? "text-[#4E4F80]" : "text-[#F8FAFC]/45 group-hover:translate-x-1"}`} />
                 </button>
               ))}
             </motion.div>
-            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden bg-[#202435] p-7 text-[#F8FAFC] sm:p-10" key={projects[activeProject].name}>
-              <div aria-hidden="true" className="absolute -right-24 -top-20 h-96 w-96 rounded-full border border-[#6E70A8]/55" />
+            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden border border-[#FBF7AC]/30 bg-[#090A0D] p-7 text-[#F8FAFC] sm:p-10" key={projects[activeProject].name}>
+              <div aria-hidden="true" className="absolute -right-24 -top-20 h-96 w-96 rounded-full border border-[#FBF7AC]/70" />
               <div aria-hidden="true" className="absolute right-10 top-16 h-56 w-56 rounded-full border border-dashed border-[#F8FAFC]/20" />
-              <div aria-hidden="true" className="absolute -right-8 bottom-12 h-72 w-72 rounded-full border border-[#6E70A8]/25" />
-              <div aria-hidden="true" className="absolute right-16 top-[44%] h-4 w-4 rounded-full border-[4px] border-[#B5B6DD]/70 bg-[#202435]" />
-              <div aria-hidden="true" className="absolute -right-6 top-[45%] h-px w-[22rem] -rotate-[27deg] bg-[#B5B6DD]/35" />
+              <div aria-hidden="true" className="absolute -right-8 bottom-12 h-72 w-72 rounded-full border border-[#6E70A8]/55" />
+              <div aria-hidden="true" className="absolute right-16 top-[44%] h-4 w-4 rounded-full border-[4px] border-[#FBF7AC]/85 bg-[#090A0D]" />
+              <div aria-hidden="true" className="absolute -right-6 top-[45%] h-px w-[22rem] -rotate-[27deg] bg-[#FBF7AC]/42" />
               <div aria-hidden="true" className="absolute right-0 top-[52%] h-px w-[15rem] rotate-[48deg] bg-[#F8FAFC]/18" />
               <div className="relative flex h-full max-w-md flex-col">
-                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B5B6DD]"><span className={`h-2 w-2 rounded-full ${projects[activeProject].accent}`} /> Active trajectory</div>
+                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#FBF7AC]"><span className={`h-2 w-2 rounded-full ${projects[activeProject].accent}`} /> Active trajectory</div>
                 <h3 className="mt-10 font-display text-[clamp(2.3rem,4vw,4rem)] leading-[0.98] tracking-[-0.055em]">{projects[activeProject].name}</h3>
                 <p className="mt-5 font-display text-xl leading-7 text-[#F1F4FA]">{projects[activeProject].short}</p>
                 <p className="mt-6 text-[15px] leading-7 text-[#F8FAFC]/65">{projects[activeProject].body}</p>
@@ -331,9 +331,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="layers" data-room className="atlas-field-dark relative overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
-        <div aria-hidden="true" className="absolute -right-20 top-8 h-[34rem] w-[34rem] rounded-full border border-[#6E70A8]/30" />
-        <div aria-hidden="true" className="absolute right-[10%] top-[23%] h-56 w-56 rounded-full border border-[#F8FAFC]/12" />
+      <section id="layers" data-room className="atlas-field-dark relative overflow-hidden bg-[#6E70A8] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
+        <div aria-hidden="true" className="absolute -right-20 top-8 h-[34rem] w-[34rem] rounded-full border border-[#FBF7AC]/58" />
+        <div aria-hidden="true" className="absolute right-[10%] top-[23%] h-56 w-56 rounded-full border border-[#F8FAFC]/25" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
             <div className="max-w-md">
@@ -357,7 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="method" data-room className="atlas-field relative bg-[#F1F4FA] py-24 md:py-32 xl:pl-40">
+      <section id="method" data-room className="atlas-field relative bg-[#FBF7AC] py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
