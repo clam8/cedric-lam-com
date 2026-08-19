@@ -387,7 +387,7 @@ export default function Home() {
                     ? "rounded-bl-[12px] rounded-br-[12px]"
                     : "rounded-bl-[12px]";
                 return (
-                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#202435]/12 px-5 py-5 text-left transition-all duration-200 sm:px-7 ${outerCorners} ${isSelected ? "bg-[#EEF1F8]" : "bg-[#FBFCFF] hover:bg-[#F1F4FA]"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
+                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#202435]/12 px-5 py-4 text-left transition-all duration-200 sm:px-7 ${outerCorners} ${isSelected ? "bg-[#EEF1F8]" : "bg-[#FBFCFF] hover:bg-[#F1F4FA]"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
                     <span className="flex items-center gap-4"><span className="font-mono text-[10px] tracking-[0.1em] text-[#6E70A8]">0{index + 1}</span><Plus className={`h-4 w-4 transition-transform duration-200 ${isSelected ? "rotate-45 text-[#4E4F80]" : "text-[#6E70A8]"}`} /><span className="font-display text-xl tracking-[-0.025em]">{layer.title}</span></span>
                     <span className={`mt-2 block pl-8 text-sm leading-6 ${isSelected ? "text-[#202435]/85" : "text-[#697386]"}`}>{isSelected ? layer.expanded : layer.note}</span>
                   </motion.button>
