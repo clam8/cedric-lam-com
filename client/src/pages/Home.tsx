@@ -16,8 +16,6 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-const STUDIO_MARK = "/manus-storage/cedric-studio-mark_7b40cd85.png";
-
 const roomLinks = [
   { id: "welcome", index: "01", label: "Welcome" },
   { id: "studio-map", index: "02", label: "Look around" },
@@ -123,12 +121,36 @@ const methodSteps = [
 ];
 
 const notes = [
-  { category: "Agency", text: "How do we build technology that increases human agency without consuming our attention?" },
-  { category: "Health", text: "How can healthier eating, movement, and sleep become intuitive habits much earlier in life?" },
-  { category: "Learning", text: "Can learning become genuinely adaptive while still giving society the signals and credentials it relies on?" },
-  { category: "Incentives", text: "How might economic incentives reward real social good rather than treating it as a side constraint?" },
-  { category: "Identity", text: "What happens to identity when several cultures feel like home — and none of them entirely does?" },
-  { category: "Equity", text: "How should access to AI, compute, and productivity gains avoid widening existing inequality?" },
+  {
+    category: "Agency",
+    text: "How do we build technology that increases human agency without consuming our attention?",
+    breaks: ["Engagement metrics often reward time spent rather than user intent.", "The logic behind ranking is rarely legible or configurable to the person affected by it.", "The cost of distraction is carried by the user, not by the system that benefits from it."],
+  },
+  {
+    category: "Health",
+    text: "How can healthier eating, movement, and sleep become intuitive habits much earlier in life?",
+    breaks: ["Support is often corrective and late, rather than woven into ordinary routines.", "Signals from sleep, movement, food, and stress are fragmented across disconnected experiences.", "Healthy choices still rely too heavily on willpower when the environment shapes behaviour."],
+  },
+  {
+    category: "Learning",
+    text: "Can learning become genuinely adaptive while still giving society the signals and credentials it relies on?",
+    breaks: ["Standardised pacing can hide both unhelpful friction and real individual potential.", "Credentials are useful social shortcuts, but weak proxies for evolving capability.", "Feedback often arrives after the moment when it could have most helped someone learn."],
+  },
+  {
+    category: "Incentives",
+    text: "How might economic incentives reward real social good rather than treating it as a side constraint?",
+    breaks: ["Positive externalities are hard to price, so they are easy to ignore.", "The people carrying care, risk, or long-term costs are often outside the value loop.", "Short evaluation cycles can make durable social benefit look less urgent than immediate returns."],
+  },
+  {
+    category: "Identity",
+    text: "What happens to identity when several cultures feel like home — and none of them entirely does?",
+    breaks: ["Many systems still expect identity to fit one stable, singular category.", "Belonging can be conditional even for people fluent in more than one cultural context.", "Cultural familiarity is often mistaken for a universal experience rather than a local one."],
+  },
+  {
+    category: "Equity",
+    text: "How should access to AI, compute, and productivity gains avoid widening existing inequality?",
+    breaks: ["The highest-leverage tools tend to reach people who already hold capital, time, and access.", "Access requires more than an account: it also depends on language, confidence, data, and agency.", "Efficiency gains do not automatically redistribute power or opportunity."],
+  },
 ];
 
 const reveal = {
@@ -189,8 +211,7 @@ export default function Home() {
 
       <header className="sticky top-0 z-40 border-b border-[#202435]/10 bg-[#FBFCFF]/88 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-8 lg:px-12">
-          <button onClick={() => scrollToRoom("welcome")} className="group flex items-center gap-3 text-left" aria-label="Back to the studio entrance">
-            <img src={STUDIO_MARK} alt="Cedric Lam studio mark" className="h-9 w-9 object-contain transition-transform duration-200 group-hover:rotate-6 group-active:scale-95" />
+          <button onClick={() => scrollToRoom("welcome")} className="group flex items-center text-left" aria-label="Back to the studio entrance">
             <span className="font-mono text-[11px] tracking-[0.2em] text-[#202435]">CEDRIC LAM<span className="text-[#6E70A8]">.</span></span>
           </button>
           <div className="hidden items-center gap-6 lg:flex">
@@ -300,9 +321,9 @@ export default function Home() {
           </motion.div>
           <div className="mt-14 grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
             <motion.div {...reveal} className="relative border-t border-[#F8FAFC]/15">
-              <div aria-hidden="true" className="absolute bottom-8 left-[18px] top-8 w-px bg-[#FBF7AC]/55" />
+              <div aria-hidden="true" className="absolute bottom-8 left-[38px] top-8 w-px bg-[#FBF7AC]/55" />
               {projects.map((project, index) => (
-                <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#F8FAFC]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
+                <button key={project.name} onClick={() => setActiveProject(index)} className={`group mx-3 flex w-[calc(100%-1.5rem)] items-start gap-4 border-b border-[#F8FAFC]/15 px-3 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
                   <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#FBF7AC] bg-[#FBF7AC] text-[#111217]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
                     <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#FBF7AC]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
@@ -367,11 +388,10 @@ export default function Home() {
             <p className="max-w-xl text-lg leading-8 text-[#615A69]">The exact tools change. The underlying movement is fairly consistent: understand the human situation, find the structure inside it, and make the next idea tangible enough to learn from.</p>
           </motion.div>
           <div className="relative mt-16 grid gap-4 border-t border-[#292330]/15 pt-7 md:grid-cols-5">
-            <div aria-hidden="true" className="absolute left-[4%] right-[4%] top-[39px] hidden h-px bg-[#6E70A8]/45 md:block" />
             {methodSteps.map((step, index) => {
               const active = index === activeMethod;
               return (
-                <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={step.title} onClick={() => setActiveMethod(index)} className={`relative min-h-[270px] border-b border-[#292330]/15 pb-7 text-left md:border-b-0 md:border-r md:pr-5 ${active ? "text-[#292330]" : "text-[#615A69]"}`} aria-pressed={active}>
+                <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={step.title} onClick={() => setActiveMethod(index)} className={`relative min-h-[270px] border-b border-[#292330]/15 pb-7 text-left md:border-b-0 md:pr-5 ${index < methodSteps.length - 1 ? "md:border-r" : ""} ${active ? "text-[#292330]" : "text-[#615A69]"}`} aria-pressed={active}>
                   <span className={`flex h-8 w-8 items-center justify-center rounded-full border font-mono text-[10px] ${active ? "border-[#6E70A8] bg-[#6E70A8] text-[#F2EEE6]" : "border-[#9891A0] text-[#9891A0]"}`}>0{index + 1}</span>
                   <span className="mt-8 block font-display text-2xl tracking-[-0.035em]">{step.title}</span>
                   <span className={`mt-4 block text-sm leading-6 transition-colors ${active ? "text-[#615A69]" : "text-[#9891A0]"}`}>{step.body}</span>
@@ -391,7 +411,7 @@ export default function Home() {
               <p className="mt-6 text-lg leading-8 text-[#615A69]">Not a roadmap. Just recurring questions that return in conversations, while running, over coffee, or whenever a new product idea begins to form.</p>
               <div className="mt-9 flex flex-wrap gap-x-4 gap-y-3">
                 {["All", ...notes.map((note) => note.category)].map((category) => (
-                  <button key={category} onClick={() => setActiveNoteCategory(category)} className={`border-b pb-1 font-mono text-[10px] uppercase tracking-[0.13em] transition-colors ${activeNoteCategory === category ? "border-[#6E70A8] text-[#4E4F80]" : "border-transparent text-[#9891A0] hover:text-[#615A69]"}`} aria-pressed={activeNoteCategory === category}>{category}</button>
+                  <button key={category} onClick={() => setActiveNoteCategory(category)} className={`border-b pb-1 font-mono text-[10px] uppercase tracking-[0.13em] transition-colors ${activeNoteCategory === category ? "border-[#6E70A8] text-[#4E4F80]" : "border-transparent text-[#9891A0] hover:text-[#615A69]"}`} aria-pressed={activeNoteCategory === category} aria-expanded={activeNoteCategory === category && category !== "All"}>{category}</button>
                 ))}
               </div>
             </div>
@@ -401,6 +421,19 @@ export default function Home() {
                 <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="grid grid-cols-[100px_1fr] gap-4 border-b border-[#292330]/15 py-7 sm:grid-cols-[125px_1fr]">
                   <span className="pt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[#6E70A8]"><span className="mr-2 text-[#9891A0]">0{index + 1}</span>{note.category}</span>
                   <p className="font-display text-[clamp(1.35rem,2vw,1.8rem)] font-light leading-[1.35] tracking-[-0.03em] text-[#292330]">{note.text}</p>
+                  {activeNoteCategory !== "All" && (
+                    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.24 }} className="col-start-2 mt-1 border-t border-[#202435]/12 pt-5">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#4E4F80]">What’s broken</p>
+                      <ul className="mt-3 space-y-3">
+                        {note.breaks.map((item, breakIndex) => (
+                          <li key={item} className="grid grid-cols-[18px_1fr] gap-3 text-sm leading-6 text-[#697386]">
+                            <span className="pt-[2px] font-mono text-[10px] text-[#6E70A8]">0{breakIndex + 1}</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
                 </motion.article>
               ))}
             </div>
