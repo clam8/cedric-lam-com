@@ -1,6 +1,6 @@
 /**
  * Open Studio Atlas — a warm editorial, spatial personal-studio experience.
- * Style cue: quiet cartography, tactile paper, studio verdigris, and deliberate motion.
+ * Style cue: cool-white cartography, fine orbit signals, studio verdigris, and deliberate motion.
  */
 import { motion, useScroll, useSpring } from "framer-motion";
 import {
@@ -16,9 +16,6 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-const HERO_IMAGE = "/manus-storage/cedric-studio-hero_bd98bd8c.jpg";
-const WORKBENCH_IMAGE = "/manus-storage/cedric-studio-workbench_fa1ccddc.jpg";
-const LAYERS_IMAGE = "/manus-storage/cedric-studio-layers_3d908788.jpg";
 const STUDIO_MARK = "/manus-storage/cedric-studio-mark_7b40cd85.png";
 
 const roomLinks = [
@@ -146,8 +143,8 @@ function scrollToRoom(id: string) {
 }
 
 function RouteStamp({ index, room, next, dark = false }: { index: string; room: string; next: string; dark?: boolean }) {
-  const baseTone = dark ? "text-[#F2EEE6]/52" : "text-[#615A69]";
-  const activeTone = dark ? "text-[#F2EEE6]" : "text-[#292330]";
+  const baseTone = dark ? "text-[#F8FAFC]/52" : "text-[#697386]";
+  const activeTone = dark ? "text-[#F8FAFC]" : "text-[#202435]";
   return (
     <div className={`mb-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] ${baseTone}`}>
       <span className={`flex items-center gap-2 ${activeTone}`}><span className="h-2 w-2 rounded-full bg-[#6E70A8]" /> {index} / {room}</span>
@@ -187,18 +184,18 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-clip bg-[#F2EEE6] text-[#292330] selection:bg-[#6E70A8] selection:text-[#F2EEE6]">
+    <main className="min-h-screen overflow-x-clip bg-[#FBFCFF] text-[#202435] selection:bg-[#6E70A8] selection:text-[#FBFCFF]">
       <motion.div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-[#6E70A8]" style={{ scaleX: progressScale }} />
 
-      <header className="sticky top-0 z-40 border-b border-[#292330]/10 bg-[#F2EEE6]/88 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-[#202435]/10 bg-[#FBFCFF]/88 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-8 lg:px-12">
           <button onClick={() => scrollToRoom("welcome")} className="group flex items-center gap-3 text-left" aria-label="Back to the studio entrance">
             <img src={STUDIO_MARK} alt="Cedric Lam studio mark" className="h-9 w-9 object-contain transition-transform duration-200 group-hover:rotate-6 group-active:scale-95" />
-            <span className="font-mono text-[11px] tracking-[0.2em] text-[#292330]">CEDRIC LAM<span className="text-[#6E70A8]">.</span></span>
+            <span className="font-mono text-[11px] tracking-[0.2em] text-[#202435]">CEDRIC LAM<span className="text-[#6E70A8]">.</span></span>
           </button>
           <div className="hidden items-center gap-6 lg:flex">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#9891A0]">Open studio / Taipei + Hong Kong</span>
-            <button onClick={() => scrollToRoom("hello")} className="inline-flex items-center gap-2 border-b border-[#292330] pb-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors hover:text-[#6E70A8]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8A94A6]">Open studio / Taipei + Hong Kong</span>
+            <button onClick={() => scrollToRoom("hello")} className="inline-flex items-center gap-2 border-b border-[#202435] pb-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors hover:text-[#6E70A8]">
               Say hello <ArrowUpRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -209,16 +206,16 @@ export default function Home() {
       </header>
 
       <aside aria-label="Studio navigation" className="fixed left-7 top-[54%] z-30 hidden -translate-y-1/2 lg:block">
-        <div className="relative border-l border-[#292330]/30 pl-4">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#9891A0]">Studio route</p>
+        <div className="relative border-l border-[#202435]/30 pl-4">
+          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#8A94A6]">Studio route</p>
           <div className="relative flex flex-col gap-[18px]">
-          <div className="absolute left-[3px] top-[9px] h-[calc(100%-18px)] border-l border-[#292330]/15" />
+          <div className="absolute left-[3px] top-[9px] h-[calc(100%-18px)] border-l border-[#202435]/15" />
           {roomLinks.map((room) => {
             const isActive = activeRoom === room.id;
             return (
               <button key={room.id} onClick={() => scrollToRoom(room.id)} className="group relative flex items-center gap-3 text-left" aria-current={isActive ? "location" : undefined}>
-                <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? "scale-[1.45] border-[#6E70A8] bg-[#6E70A8]" : "border-[#9891A0] bg-[#F2EEE6] group-hover:border-[#6E70A8]"}`} />
-                <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? "text-[#292330]" : "text-[#9891A0] group-hover:text-[#615A69]"}`}><span className="mr-2 opacity-65">{room.index}</span>{room.label}</span>
+                <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? "scale-[1.45] border-[#6E70A8] bg-[#6E70A8]" : "border-[#8A94A6] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
+                <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? "text-[#202435]" : "text-[#8A94A6] group-hover:text-[#697386]"}`}><span className="mr-2 opacity-65">{room.index}</span>{room.label}</span>
               </button>
             );
           })}
@@ -226,32 +223,35 @@ export default function Home() {
         </div>
       </aside>
 
-      <section id="welcome" data-room className="relative isolate min-h-[calc(100svh-74px)] overflow-hidden">
-        <div className="absolute inset-y-0 right-0 w-[58%] bg-cover bg-center opacity-90 mix-blend-multiply" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
-        <div className="absolute inset-y-0 right-0 w-[72%] bg-gradient-to-r from-[#F2EEE6] via-[#F2EEE6]/72 to-transparent" />
-        <div className="paper-grain absolute inset-0 opacity-40" />
+      <section id="welcome" data-room className="atlas-field relative isolate min-h-[calc(100svh-74px)] overflow-hidden bg-[#FBFCFF]">
+        <div aria-hidden="true" className="absolute right-[-9rem] top-[8%] h-[42rem] w-[42rem] rounded-full border border-[#6E70A8]/35" />
+        <div aria-hidden="true" className="absolute right-[3%] top-[18%] h-[29rem] w-[29rem] rounded-full border border-[#202435]/12" />
+        <div aria-hidden="true" className="absolute right-[11%] top-[27%] h-[17rem] w-[17rem] rounded-full border border-dashed border-[#6E70A8]/40" />
+        <div aria-hidden="true" className="absolute right-[19%] top-[39%] h-5 w-5 rounded-full border-[5px] border-[#6E70A8]/70 bg-[#FBFCFF]" />
+        <div aria-hidden="true" className="absolute right-[15%] top-[17%] h-px w-[26rem] rotate-[31deg] bg-[#202435]/15" />
+        <div aria-hidden="true" className="absolute bottom-[16%] right-[4%] h-px w-[30rem] -rotate-[13deg] bg-[#6E70A8]/40" />
         <div className="relative mx-auto flex min-h-[calc(100svh-74px)] max-w-[1440px] items-end px-5 pb-14 pt-16 md:px-8 md:pb-20 lg:px-20 lg:pb-24 xl:pl-48">
           <motion.div {...reveal} className="max-w-4xl">
-            <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#615A69]">
+            <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#697386]">
               <span className="h-2 w-2 rounded-full bg-[#6E70A8]" /> Cedric Lam · Studio
             </div>
-            <h1 className="font-display text-[clamp(4.2rem,10.4vw,10.75rem)] font-medium leading-[0.83] tracking-[-0.075em] text-[#292330]">CEDRIC<br />LAM<span className="text-[#6E70A8]">.</span></h1>
-            <p className="mt-10 max-w-2xl font-display text-[clamp(1.45rem,2.4vw,2.55rem)] leading-[1.2] tracking-[-0.035em] text-[#292330]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
+            <h1 className="font-display text-[clamp(4.2rem,10.4vw,10.75rem)] font-medium leading-[0.83] tracking-[-0.075em] text-[#202435]">CEDRIC<br />LAM<span className="text-[#6E70A8]">.</span></h1>
+            <p className="mt-10 max-w-2xl font-display text-[clamp(1.45rem,2.4vw,2.55rem)] leading-[1.2] tracking-[-0.035em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-              <button onClick={() => scrollToRoom("studio-map")} className="group inline-flex items-center gap-3 border-b border-[#292330] pb-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-[#6E70A8]">
+              <button onClick={() => scrollToRoom("studio-map")} className="group inline-flex items-center gap-3 border-b border-[#202435] pb-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-[#6E70A8]">
                 Enter the studio <ArrowDownRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1" />
               </button>
-              <span className="max-w-xs font-sans text-sm leading-6 text-[#615A69]">Useful ideas. Thoughtful details. People on the other side.</span>
+              <span className="max-w-xs font-sans text-sm leading-6 text-[#697386]">Useful ideas. Thoughtful details. People on the other side.</span>
             </div>
           </motion.div>
-          <div className="absolute bottom-7 right-5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#615A69] md:bottom-10 md:right-8 lg:right-20">01 — Welcome</div>
+          <div className="absolute bottom-7 right-5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#697386] md:bottom-10 md:right-8 lg:right-20">01 — Welcome</div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-[#292330]/10 bg-[#E9E3D6] py-24 md:py-32 xl:pl-28">
+      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#F1F4FA] py-24 md:py-32 xl:pl-28">
         <div className="absolute -left-12 top-8 h-52 w-52 rounded-full border border-[#6E70A8]/30" />
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
-          <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em] text-[#292330]">I absorb <em className="font-medium text-[#4E4F80]">broadly</em>,<br />connect <em className="font-medium text-[#4E4F80]">deeply</em>,</p>
+          <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="font-medium text-[#4E4F80]">broadly</em>,<br />connect <em className="font-medium text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-[12%] mt-4 flex items-end gap-5 md:mt-7">
             <span className="h-10 w-10 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10" />
             <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em]">and build <em className="font-medium text-[#4E4F80]">thoughtfully.</em></p>
@@ -259,7 +259,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="studio-map" data-room className="atlas-field relative bg-[#F2EEE6] py-24 md:py-32 xl:pl-40">
+      <section id="studio-map" data-room className="atlas-field relative bg-[#FBFCFF] py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 border-b border-[#292330]/15 pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
@@ -289,7 +289,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="workbench" data-room className="atlas-field relative overflow-hidden bg-[#F2EEE6] py-24 md:py-32 xl:pl-40">
+      <section id="workbench" data-room className="atlas-field relative overflow-hidden bg-[#FBFCFF] py-24 md:py-32 xl:pl-40">
         <div aria-hidden="true" className="absolute -right-14 top-20 h-72 w-72 rounded-full border border-[#6E70A8]/20" />
         <div aria-hidden="true" className="absolute right-20 top-52 h-40 w-40 rounded-full border border-[#292330]/10" />
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
@@ -303,7 +303,7 @@ export default function Home() {
               <div aria-hidden="true" className="absolute bottom-8 left-[18px] top-8 w-px bg-[#6E70A8]/35" />
               {projects.map((project, index) => (
                 <button key={project.name} onClick={() => setActiveProject(index)} className={`group flex w-full items-start gap-4 border-b border-[#292330]/15 py-5 text-left transition-colors ${activeProject === index ? "bg-[#E9E3D6]/75" : "hover:bg-[#E9E3D6]/40"}`} aria-pressed={activeProject === index}>
-                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-[#F2EEE6] font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#6E70A8] text-[#4E4F80]" : "border-[#9891A0] text-[#9891A0]"}`}>0{index + 1}</span>
+                  <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-[#FBFCFF] font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#6E70A8] text-[#4E4F80]" : "border-[#8A94A6] text-[#8A94A6]"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
                     <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#6E70A8]" : "text-[#9891A0]"}`}>{project.tag}</span>
                     <span className="mt-1 block font-display text-xl leading-6 tracking-[-0.025em]">{project.title}</span>
@@ -312,23 +312,28 @@ export default function Home() {
                 </button>
               ))}
             </motion.div>
-            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden bg-[#292330] p-7 text-[#F2EEE6] sm:p-10" key={projects[activeProject].name}>
-              <div className="absolute inset-y-0 right-0 w-[64%] bg-cover bg-center opacity-35 mix-blend-screen" style={{ backgroundImage: `url(${WORKBENCH_IMAGE})` }} />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#292330] via-[#292330]/80 to-[#292330]/10" />
+            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden bg-[#202435] p-7 text-[#F8FAFC] sm:p-10" key={projects[activeProject].name}>
+              <div aria-hidden="true" className="absolute -right-24 -top-20 h-96 w-96 rounded-full border border-[#6E70A8]/55" />
+              <div aria-hidden="true" className="absolute right-10 top-16 h-56 w-56 rounded-full border border-dashed border-[#F8FAFC]/20" />
+              <div aria-hidden="true" className="absolute -right-8 bottom-12 h-72 w-72 rounded-full border border-[#6E70A8]/25" />
+              <div aria-hidden="true" className="absolute right-16 top-[44%] h-4 w-4 rounded-full border-[4px] border-[#B5B6DD]/70 bg-[#202435]" />
+              <div aria-hidden="true" className="absolute -right-6 top-[45%] h-px w-[22rem] -rotate-[27deg] bg-[#B5B6DD]/35" />
+              <div aria-hidden="true" className="absolute right-0 top-[52%] h-px w-[15rem] rotate-[48deg] bg-[#F8FAFC]/18" />
               <div className="relative flex h-full max-w-md flex-col">
-                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B5B6DD]"><span className={`h-2 w-2 rounded-full ${projects[activeProject].accent}`} /> Selected thread</div>
+                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B5B6DD]"><span className={`h-2 w-2 rounded-full ${projects[activeProject].accent}`} /> Active trajectory</div>
                 <h3 className="mt-10 font-display text-[clamp(2.3rem,4vw,4rem)] leading-[0.98] tracking-[-0.055em]">{projects[activeProject].name}</h3>
-                <p className="mt-5 font-display text-xl leading-7 text-[#E9E3D6]">{projects[activeProject].short}</p>
-                <p className="mt-6 text-[15px] leading-7 text-[#F2EEE6]/65">{projects[activeProject].body}</p>
-                <div className="mt-auto pt-10 font-mono text-[10px] uppercase tracking-[0.15em] text-[#F2EEE6]/45">{projects[activeProject].roles}</div>
+                <p className="mt-5 font-display text-xl leading-7 text-[#F1F4FA]">{projects[activeProject].short}</p>
+                <p className="mt-6 text-[15px] leading-7 text-[#F8FAFC]/65">{projects[activeProject].body}</p>
+                <div className="mt-auto pt-10 font-mono text-[10px] uppercase tracking-[0.15em] text-[#F8FAFC]/45">{projects[activeProject].roles}</div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section id="layers" data-room className="atlas-field-dark relative overflow-hidden bg-[#292330] py-24 text-[#F2EEE6] md:py-32 xl:pl-40">
-        <div className="absolute inset-y-0 right-0 w-full opacity-35 lg:w-[53%]" style={{ backgroundImage: `linear-gradient(90deg, #292330 0%, rgba(41,35,48,.72) 38%, rgba(41,35,48,.2) 100%), url(${LAYERS_IMAGE})`, backgroundPosition: "right center", backgroundSize: "cover" }} />
+      <section id="layers" data-room className="atlas-field-dark relative overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
+        <div aria-hidden="true" className="absolute -right-20 top-8 h-[34rem] w-[34rem] rounded-full border border-[#6E70A8]/30" />
+        <div aria-hidden="true" className="absolute right-[10%] top-[23%] h-56 w-56 rounded-full border border-[#F8FAFC]/12" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
             <div className="max-w-md">
@@ -352,7 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="method" data-room className="atlas-field relative bg-[#E9E3D6] py-24 md:py-32 xl:pl-40">
+      <section id="method" data-room className="atlas-field relative bg-[#F1F4FA] py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
@@ -377,7 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="margin-notes" data-room className="atlas-field relative bg-[#F2EEE6] py-24 md:py-32 xl:pl-40">
+      <section id="margin-notes" data-room className="atlas-field relative bg-[#FBFCFF] py-24 md:py-32 xl:pl-40">
         <div className="mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr]">
             <div className="max-w-md">
@@ -403,7 +408,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="hello" data-room className="atlas-field-dark relative isolate overflow-hidden bg-[#292330] py-24 text-[#F2EEE6] md:py-32 xl:pl-40">
+      <section id="hello" data-room className="atlas-field-dark relative isolate overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
         <div className="absolute right-[-5%] top-[-12%] h-[440px] w-[440px] rounded-full border border-[#6E70A8]/50" />
         <div className="absolute right-[10%] top-[13%] h-[18px] w-[18px] rounded-full bg-[#6E70A8]" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">

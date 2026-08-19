@@ -1,6 +1,6 @@
 /*
- * Open Studio Atlas — global visual language: warm paper, dark ink, studio verdigris.
- * Maintain editorial whitespace, spatial navigation, and low-noise tactile depth.
+ * Open Studio Atlas — global visual language: cool white, dark ink, studio verdigris.
+ * Maintain editorial whitespace, spatial navigation, and low-noise cartographic depth.
  */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
@@ -34,35 +34,35 @@
 }
 
 :root {
-  --background: #F2EEE6;
-  --foreground: #292330;
-  --card: #F2EEE6;
-  --card-foreground: #292330;
-  --popover: #F2EEE6;
-  --popover-foreground: #292330;
+  --background: #FBFCFF;
+  --foreground: #202435;
+  --card: #FBFCFF;
+  --card-foreground: #202435;
+  --popover: #FBFCFF;
+  --popover-foreground: #202435;
   --primary: #4E4F80;
-  --primary-foreground: #F2EEE6;
-  --secondary: #E9E3D6;
-  --secondary-foreground: #292330;
-  --muted: #E9E3D6;
-  --muted-foreground: #615A69;
-  --accent: #E5E4F1;
-  --accent-foreground: #292330;
-  --border: rgba(41, 35, 48, 0.13);
+  --primary-foreground: #FBFCFF;
+  --secondary: #F1F4FA;
+  --secondary-foreground: #202435;
+  --muted: #F1F4FA;
+  --muted-foreground: #697386;
+  --accent: #E7E8F3;
+  --accent-foreground: #202435;
+  --border: rgba(32, 36, 53, 0.13);
   --ring: #6E70A8;
 }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
-  html { scroll-behavior: smooth; background: #F2EEE6; }
+  html { scroll-behavior: smooth; background: #FBFCFF; }
   body { @apply bg-background text-foreground font-sans antialiased; }
   button:not(:disabled), a[href] { @apply cursor-pointer; }
-  ::selection { background: #6E70A8; color: #F2EEE6; }
+  ::selection { background: #6E70A8; color: #FBFCFF; }
 }
 
 @layer components {
   .section-kicker {
-    @apply mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#615A69];
+    @apply mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#697386];
   }
   .section-kicker::before {
     content: "";
@@ -74,24 +74,18 @@
     background: #6E70A8;
     vertical-align: 1px;
   }
-  .section-kicker-dark { @apply text-[#F2EEE6]/55; }
-  .section-title { @apply font-display text-[clamp(2.9rem,5.2vw,5.8rem)] font-medium leading-[0.94] tracking-[-0.06em] text-[#292330]; }
-  .paper-grain {
-    background-image: radial-gradient(rgba(41,35,48,0.12) 0.65px, transparent 0.65px);
-    background-size: 6px 6px;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-  }
+  .section-kicker-dark { @apply text-[#F8FAFC]/55; }
+  .section-title { @apply font-display text-[clamp(2.9rem,5.2vw,5.8rem)] font-medium leading-[0.94] tracking-[-0.06em] text-[#202435]; }
   .atlas-field {
     background-image:
-      linear-gradient(rgba(41,35,48,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(41,35,48,0.035) 1px, transparent 1px);
+      linear-gradient(rgba(32,36,53,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(32,36,53,0.035) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .atlas-field-dark {
     background-image:
-      linear-gradient(rgba(242,238,230,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(242,238,230,0.035) 1px, transparent 1px);
+      linear-gradient(rgba(248,250,252,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,250,252,0.035) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 }
