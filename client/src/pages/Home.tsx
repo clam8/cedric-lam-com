@@ -354,15 +354,9 @@ export default function Home() {
                 </button>
               ))}
             </motion.div>
-            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden border border-[#FBF7AC]/30 bg-[#090A0D] p-7 text-[#F8FAFC] sm:p-10" key={projects[activeProject].name}>
-              <div aria-hidden="true" className="absolute -right-24 -top-20 h-96 w-96 rounded-full border border-[#FBF7AC]/70" />
-              <div aria-hidden="true" className="absolute right-10 top-16 h-56 w-56 rounded-full border border-dashed border-[#F8FAFC]/20" />
-              <div aria-hidden="true" className="absolute -right-8 bottom-12 h-72 w-72 rounded-full border border-[#6E70A8]/55" />
-              <div aria-hidden="true" className="absolute right-16 top-[44%] h-4 w-4 rounded-full border-[4px] border-[#FBF7AC]/85 bg-[#090A0D]" />
-              <div aria-hidden="true" className="absolute -right-6 top-[45%] h-px w-[22rem] -rotate-[27deg] bg-[#FBF7AC]/42" />
-              <div aria-hidden="true" className="absolute right-0 top-[52%] h-px w-[15rem] rotate-[48deg] bg-[#F8FAFC]/18" />
+            <motion.div {...reveal} className="relative min-h-[460px] overflow-hidden rounded-[18px] border border-[#E2E6EE]/30 bg-[#15161B] p-7 text-[#F8FAFC] sm:p-10" key={projects[activeProject].name}>
               <div className="relative flex h-full max-w-md flex-col">
-                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#FBF7AC]"><span className={`h-2 w-2 rounded-full ${projects[activeProject].accent}`} /> Active trajectory</div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#FBF7AC]">0{activeProject + 1} — {projects[activeProject].tag}</div>
                 <h3 className="mt-10 font-display text-[clamp(2.3rem,4vw,4rem)] leading-[0.98] tracking-[-0.055em]">{projects[activeProject].name}</h3>
                 <p className="mt-5 font-display text-xl leading-7 text-[#F1F4FA]">{projects[activeProject].short}</p>
                 <p className="mt-6 text-[15px] leading-7 text-[#F8FAFC]/65">{projects[activeProject].body}</p>
