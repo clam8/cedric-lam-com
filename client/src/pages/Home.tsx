@@ -254,7 +254,7 @@ export default function Home() {
                 const isActive = activeRoom === room.id;
                 return (
                   <button key={room.id} onClick={() => scrollToRoom(room.id)} className="group relative flex items-center gap-3 text-left" aria-current={isActive ? "location" : undefined}>
-                    <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? isWorkbenchRoute ? "scale-[1.45] border-[#FBF7AC] bg-[#FBF7AC] shadow-[0_0_0_3px_rgba(17,18,23,0.92)]" : "scale-[1.45] border-[#6E70A8] bg-[#6E70A8] shadow-[0_0_0_3px_rgba(251,252,255,0.76)]" : isWorkbenchRoute ? "border-[#6E70A8]/75 bg-[#111217] group-hover:border-[#FBF7AC]" : "border-[#697386] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
+                    <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? isWorkbenchRoute ? "scale-[1.35] border-0 bg-[#FBF7AC]" : "scale-[1.35] border-0 bg-[#6E70A8]" : isWorkbenchRoute ? "border-[#6E70A8]/75 bg-[#111217] group-hover:border-[#FBF7AC]" : "border-[#697386] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
                     <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? isWorkbenchRoute ? "text-[#F8FAFC]" : "text-[#202435]" : isWorkbenchRoute ? "text-[#F8FAFC]/48 group-hover:text-[#F8FAFC]/78" : "text-[#697386] group-hover:text-[#202435]"}`}><span className={`mr-2 ${isWorkbenchRoute && isActive ? "text-[#FBF7AC]" : "opacity-65"}`}>{room.index}</span>{room.label}</span>
                   </button>
                 );
@@ -460,7 +460,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="hello" data-room className="relative isolate overflow-hidden bg-[#202435] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
+      <section id="hello" data-room className="relative isolate overflow-hidden bg-[#111217] py-24 text-[#F8FAFC] md:py-32 xl:pl-40">
         <div className="absolute right-[-5%] top-[-12%] h-[440px] w-[440px] rounded-full border border-[#6E70A8]/50" />
         <div className="absolute right-[10%] top-[13%] h-[18px] w-[18px] rounded-full bg-[#6E70A8]" />
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
