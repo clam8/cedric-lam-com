@@ -212,7 +212,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-[#202435]/10 bg-[#FBFCFF]/88 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-8 lg:px-12">
           <button onClick={() => scrollToRoom("welcome")} className="group flex items-center text-left" aria-label="Back to the studio entrance">
-            <span className="font-mono text-[11px] tracking-[0.2em] text-[#202435]">CEDRIC LAM<span className="text-[#6E70A8]">.</span></span>
+            <span className="wordmark-exo text-[17px] tracking-[0.02em] text-[#202435]">Cedric Lam<span className="text-[#6E70A8]">.</span></span>
           </button>
           <div className="hidden items-center gap-6 lg:flex">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8A94A6]">Open studio / Taipei + Hong Kong</span>
@@ -272,9 +272,9 @@ export default function Home() {
       <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-24 md:py-32 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
           <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em] text-[#202435]">I absorb <em className="font-medium text-[#4E4F80]">broadly</em>,<br />connect <em className="font-medium text-[#4E4F80]">deeply</em>,</p>
-          <div className="ml-[12%] mt-4 flex items-end gap-5 md:mt-7">
-            <span className="h-10 w-10 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10" />
-            <p className="font-display text-[clamp(2.7rem,5.8vw,6.6rem)] font-light leading-[1.12] tracking-[-0.055em]">and build <em className="font-medium text-[#4E4F80]">thoughtfully.</em></p>
+          <div className="ml-0 mt-4 flex items-center gap-3 sm:ml-[12%] sm:gap-5 md:mt-7">
+            <span className="h-7 w-7 shrink-0 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10 sm:h-10 sm:w-10" />
+            <p className="whitespace-nowrap font-display text-[clamp(1.45rem,8vw,2.7rem)] font-light leading-[1.12] tracking-[-0.055em] sm:text-[clamp(2.7rem,5.8vw,6.6rem)]">and build <em className="font-medium text-[#4E4F80]">thoughtfully.</em></p>
           </div>
         </motion.div>
       </section>
@@ -320,10 +320,10 @@ export default function Home() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#F8FAFC]/62">I tend to begin with something in ordinary life that feels unnecessarily difficult, unhealthy, disempowering, or wasteful — and ask whether a product could make it better.</p>
           </motion.div>
           <div className="mt-14 grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
-            <motion.div {...reveal} className="relative border-t border-[#F8FAFC]/15">
-              <div aria-hidden="true" className="absolute bottom-8 left-[38px] top-8 w-px bg-[#FBF7AC]/55" />
+            <motion.div {...reveal} className="relative border-y border-[#F8FAFC]/15">
+              <div aria-hidden="true" className="absolute bottom-8 left-[42px] top-8 w-px bg-[#FBF7AC]/55" />
               {projects.map((project, index) => (
-                <button key={project.name} onClick={() => setActiveProject(index)} className={`group mx-3 flex w-[calc(100%-1.5rem)] items-start gap-4 border-b border-[#F8FAFC]/15 px-3 py-5 text-left transition-colors ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
+                <button key={project.name} onClick={() => setActiveProject(index)} className={`group mx-3 flex w-[calc(100%-1.5rem)] items-start gap-4 px-3 py-5 text-left transition-colors ${index < projects.length - 1 ? "border-b border-[#F8FAFC]/15" : ""} ${activeProject === index ? "bg-[#FBF7AC]/[0.12] text-[#F8FAFC]" : "hover:bg-[#F8FAFC]/[0.07]"}`} aria-pressed={activeProject === index}>
                   <span className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] tracking-[0.12em] ${activeProject === index ? "border-[#FBF7AC] bg-[#FBF7AC] text-[#111217]" : "border-[#F8FAFC]/45 bg-[#111217] text-[#F8FAFC]/55"}`}>0{index + 1}</span>
                   <span className="min-w-0 flex-1 pr-4">
                     <span className={`block font-mono text-[10px] uppercase tracking-[0.14em] ${activeProject === index ? "text-[#FBF7AC]" : "text-[#F8FAFC]/45"}`}>{project.tag}</span>
@@ -416,7 +416,6 @@ export default function Home() {
               </div>
             </div>
             <div className="relative border-t border-[#292330]/15">
-              <div aria-hidden="true" className="absolute -left-6 bottom-0 top-0 w-px bg-[#6E70A8]/40" />
               {visibleNotes.map((note, index) => (
                 <motion.article key={note.category} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.32, delay: index * 0.04 }} className="grid grid-cols-[100px_1fr] gap-4 border-b border-[#292330]/15 py-7 sm:grid-cols-[125px_1fr]">
                   <span className="pt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[#6E70A8]"><span className="mr-2 text-[#9891A0]">0{index + 1}</span>{note.category}</span>
