@@ -289,12 +289,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-24 md:py-32 xl:pl-28">
+      <section className="relative overflow-hidden border-y border-[#202435]/10 bg-[#E9EDF5] py-32 md:py-40 xl:pl-28">
         <motion.div {...reveal} className="relative mx-auto max-w-6xl px-5 md:px-8 lg:px-12">
-          <p className="wordmark-averia text-[clamp(2.25rem,5vw,5.5rem)] leading-[1.14] tracking-[-0.045em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
+          <p className="wordmark-averia text-[clamp(1.8rem,4.1vw,4.5rem)] leading-[1.16] tracking-[-0.04em] text-[#202435]">I absorb <em className="text-[#4E4F80]">broadly</em>,<br />connect <em className="text-[#4E4F80]">deeply</em>,</p>
           <div className="ml-0 mt-4 flex items-center gap-3 sm:ml-[12%] sm:gap-5 md:mt-7">
             <span className="h-7 w-7 shrink-0 rounded-full border border-[#6E70A8] bg-[#6E70A8]/10 sm:h-10 sm:w-10" />
-            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.25rem,7vw,2.3rem)] leading-[1.14] tracking-[-0.045em] sm:text-[clamp(2.25rem,5vw,5.5rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
+            <p className="wordmark-averia whitespace-nowrap text-[clamp(1.05rem,6vw,1.85rem)] leading-[1.16] tracking-[-0.04em] sm:text-[clamp(1.8rem,4.1vw,4.5rem)]">and build <em className="text-[#4E4F80]">thoughtfully.</em></p>
           </div>
         </motion.div>
       </section>
@@ -387,7 +387,7 @@ export default function Home() {
               {layers.map((layer, index) => {
                 const isSelected = activeLayer === index;
                 return (
-                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#202435]/12 px-5 py-5 text-left transition-all duration-200 sm:px-7 ${isSelected ? "bg-[#F1F4FA]" : "bg-white/55 hover:bg-white"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
+                  <motion.button {...reveal} transition={{ ...reveal.transition, delay: index * 0.05 }} key={layer.title} onClick={() => setActiveLayer(index)} className={`relative block w-full border border-[#202435]/12 px-5 py-5 text-left transition-all duration-200 sm:px-7 ${isSelected ? "bg-[#EEF1F8]" : "bg-[#FBFCFF] hover:bg-[#F1F4FA]"}`} style={{ marginLeft: `${index * 3.4}%`, width: `${100 - index * 3.4}%` }} aria-pressed={isSelected}>
                     <span className="flex items-center gap-4"><span className="font-mono text-[10px] tracking-[0.1em] text-[#6E70A8]">0{index + 1}</span><Plus className={`h-4 w-4 transition-transform duration-200 ${isSelected ? "rotate-45 text-[#4E4F80]" : "text-[#6E70A8]"}`} /><span className="font-display text-xl tracking-[-0.025em]">{layer.title}</span></span>
                     <span className={`mt-2 block pl-8 text-sm leading-6 ${isSelected ? "text-[#202435]/85" : "text-[#697386]"}`}>{isSelected ? layer.expanded : layer.note}</span>
                   </motion.button>
