@@ -248,7 +248,7 @@ export default function Home() {
         <div aria-hidden="true" className="absolute right-[-9rem] top-[8%] h-[42rem] w-[42rem] rounded-full border border-[#6E70A8]/35" />
         <div aria-hidden="true" className="absolute right-[3%] top-[18%] h-[29rem] w-[29rem] rounded-full border border-[#202435]/12" />
         <div aria-hidden="true" className="absolute right-[11%] top-[27%] h-[17rem] w-[17rem] rounded-full border border-dashed border-[#6E70A8]/40" />
-        <div aria-hidden="true" className="absolute right-[19%] top-[39%] h-5 w-5 rounded-full border-[5px] border-[#6E70A8]/70 bg-[#FBFCFF]" />
+        <div aria-hidden="true" className="absolute right-[19%] top-[39%] h-5 w-5 rounded-full border-[5px] border-[#FBF7AC] bg-[#FBFCFF]" />
         <div aria-hidden="true" className="absolute right-[15%] top-[17%] h-px w-[26rem] rotate-[31deg] bg-[#202435]/15" />
         <div aria-hidden="true" className="absolute bottom-[16%] right-[4%] h-px w-[30rem] -rotate-[13deg] bg-[#6E70A8]/40" />
         <div className="relative mx-auto flex min-h-[calc(100svh-74px)] max-w-[1440px] items-end px-5 pb-14 pt-16 md:px-8 md:pb-20 lg:px-20 lg:pb-24 xl:pl-48">
@@ -256,7 +256,7 @@ export default function Home() {
             <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#697386]">
               <span className="h-2 w-2 rounded-full bg-[#6E70A8]" /> Cedric Lam · Studio
             </div>
-            <h1 className="wordmark-exo text-[clamp(4.2rem,10.4vw,10.75rem)] leading-[0.83] tracking-[-0.075em] text-[#202435]">Cedric<br />Lam<span className="text-[#FBF7AC]">.</span></h1>
+            <h1 className="wordmark-exo text-[clamp(4.2rem,10.4vw,10.75rem)] leading-[0.83] tracking-[-0.075em] text-[#202435]">Cedric<br />Lam<span className="text-[#6E70A8]">.</span></h1>
             <p className="mt-10 max-w-2xl font-display text-[clamp(1.45rem,2.4vw,2.55rem)] leading-[1.2] tracking-[-0.035em] text-[#202435]">A globally minded product creator building the connective tissue between technology, design, business, and human-centred thinking.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
               <button onClick={() => scrollToRoom("studio-map")} className="group inline-flex items-center gap-3 border-b border-[#202435] pb-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors hover:text-[#6E70A8]">
