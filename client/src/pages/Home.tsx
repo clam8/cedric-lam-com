@@ -227,18 +227,18 @@ export default function Home() {
         </div>
       </header>
 
-      <aside aria-label="Studio navigation" className="fixed left-0 top-1/2 z-30 hidden h-[440px] w-[190px] -translate-y-1/2 xl:block">
-        <div aria-hidden="true" className={`pointer-events-none absolute left-1 top-1/2 h-[320px] w-[178px] -translate-y-1/2 rounded-[42px] bg-[linear-gradient(to_right,rgba(251,252,255,0.94)_0%,rgba(251,252,255,0.78)_64%,rgba(251,252,255,0)_100%)] transition-opacity duration-300 ${isWorkbenchRoute ? "opacity-100" : "opacity-0"}`} />
-        <div className="relative flex h-full items-center pl-7">
+      <aside aria-label="Studio navigation" className={`fixed left-0 top-1/2 z-30 hidden h-[260px] w-[166px] -translate-y-1/2 transition-colors duration-300 xl:block ${isWorkbenchRoute ? "text-[#F8FAFC]" : "text-[#202435]"}`}>
+        <div aria-hidden="true" className={`pointer-events-none absolute left-5 top-1/2 h-[194px] w-px -translate-y-1/2 transition-colors duration-300 ${isWorkbenchRoute ? "bg-[#6E70A8]/50" : "bg-transparent"}`} />
+        <div className="relative flex h-full items-center pl-5">
           <div>
-            <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#697386]">Studio route</p>
+            <p className={`mb-5 font-mono text-[9px] uppercase tracking-[0.2em] transition-colors duration-300 ${isWorkbenchRoute ? "text-[#F8FAFC]/45" : "text-[#697386]"}`}>Studio route</p>
             <div className="flex flex-col gap-[18px]">
               {roomLinks.map((room) => {
                 const isActive = activeRoom === room.id;
                 return (
                   <button key={room.id} onClick={() => scrollToRoom(room.id)} className="group relative flex items-center gap-3 text-left" aria-current={isActive ? "location" : undefined}>
-                    <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? "scale-[1.45] border-[#6E70A8] bg-[#6E70A8] shadow-[0_0_0_3px_rgba(251,252,255,0.76)]" : "border-[#697386] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
-                    <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? "text-[#202435]" : "text-[#697386] group-hover:text-[#202435]"}`}><span className="mr-2 opacity-65">{room.index}</span>{room.label}</span>
+                    <span className={`z-10 h-[7px] w-[7px] rounded-full border transition-all duration-200 ${isActive ? isWorkbenchRoute ? "scale-[1.45] border-[#FBF7AC] bg-[#FBF7AC] shadow-[0_0_0_3px_rgba(17,18,23,0.92)]" : "scale-[1.45] border-[#6E70A8] bg-[#6E70A8] shadow-[0_0_0_3px_rgba(251,252,255,0.76)]" : isWorkbenchRoute ? "border-[#6E70A8]/75 bg-[#111217] group-hover:border-[#FBF7AC]" : "border-[#697386] bg-[#FBFCFF] group-hover:border-[#6E70A8]"}`} />
+                    <span className={`font-mono text-[9px] uppercase tracking-[0.13em] transition-colors ${isActive ? isWorkbenchRoute ? "text-[#F8FAFC]" : "text-[#202435]" : isWorkbenchRoute ? "text-[#F8FAFC]/48 group-hover:text-[#F8FAFC]/78" : "text-[#697386] group-hover:text-[#202435]"}`}><span className={`mr-2 ${isWorkbenchRoute && isActive ? "text-[#FBF7AC]" : "opacity-65"}`}>{room.index}</span>{room.label}</span>
                   </button>
                 );
               })}
