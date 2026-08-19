@@ -193,17 +193,34 @@ export default function Home() {
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-room]"));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const current = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (current) setActiveRoom(current.target.id);
-      },
-      { rootMargin: "-28% 0px -58% 0px", threshold: [0.05, 0.2, 0.55] },
-    );
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    let frameId = 0;
+
+    const updateActiveRoom = () => {
+      const referenceY = window.innerHeight * 0.42;
+      let currentId = sections[0]?.id ?? "welcome";
+
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= referenceY) currentId = section.id;
+        else break;
+      }
+
+      setActiveRoom((previousId) => (previousId === currentId ? previousId : currentId));
+      frameId = 0;
+    };
+
+    const requestUpdate = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(updateActiveRoom);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return (
@@ -228,7 +245,7 @@ export default function Home() {
       </header>
 
       <aside aria-label="Studio navigation" className={`fixed left-0 top-1/2 z-30 hidden h-[260px] w-[166px] -translate-y-1/2 transition-colors duration-300 xl:block ${isWorkbenchRoute ? "text-[#F8FAFC]" : "text-[#202435]"}`}>
-        <div aria-hidden="true" className={`pointer-events-none absolute left-5 top-1/2 h-[194px] w-px -translate-y-1/2 transition-colors duration-300 ${isWorkbenchRoute ? "bg-[#6E70A8]/50" : "bg-transparent"}`} />
+        <div aria-hidden="true" className={`pointer-events-none absolute left-5 top-1/2 h-[194px] w-px -translate-y-1/2 transition-colors duration-300 ${isWorkbenchRoute ? "bg-[#6E70A8]/55" : "bg-[#202435]/22"}`} />
         <div className="relative flex h-full items-center pl-5">
           <div>
             <p className={`mb-5 font-mono text-[9px] uppercase tracking-[0.2em] transition-colors duration-300 ${isWorkbenchRoute ? "text-[#F8FAFC]/45" : "text-[#697386]"}`}>Studio route</p>
