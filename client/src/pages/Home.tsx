@@ -182,6 +182,7 @@ export default function Home() {
   const [activeLayer, setActiveLayer] = useState(0);
   const [activeMethod, setActiveMethod] = useState(0);
   const [activeNoteCategory, setActiveNoteCategory] = useState("All");
+  const isWorkbenchRoute = activeRoom === "workbench";
   const { scrollYProgress } = useScroll();
   const progressScale = useSpring(scrollYProgress, { stiffness: 130, damping: 24, mass: 0.3 });
 
@@ -227,7 +228,7 @@ export default function Home() {
       </header>
 
       <aside aria-label="Studio navigation" className="fixed left-0 top-1/2 z-30 hidden h-[440px] w-[190px] -translate-y-1/2 xl:block">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_150px_220px_at_0%_50%,rgba(251,252,255,0.92)_0%,rgba(251,252,255,0.72)_32%,rgba(251,252,255,0.30)_60%,transparent_100%)]" />
+        <div aria-hidden="true" className={`pointer-events-none absolute left-1 top-1/2 h-[320px] w-[178px] -translate-y-1/2 rounded-[42px] bg-[linear-gradient(to_right,rgba(251,252,255,0.94)_0%,rgba(251,252,255,0.78)_64%,rgba(251,252,255,0)_100%)] transition-opacity duration-300 ${isWorkbenchRoute ? "opacity-100" : "opacity-0"}`} />
         <div className="relative flex h-full items-center pl-7">
           <div>
             <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#697386]">Studio route</p>
