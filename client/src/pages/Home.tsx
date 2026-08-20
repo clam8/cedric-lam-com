@@ -482,8 +482,8 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1240px] px-5 md:px-8 lg:px-12">
           <motion.div {...reveal} className="max-w-3xl">
             <RouteStamp index="07" room="Hello" next="Welcome" dark />
-            <h2 className="font-display text-[clamp(3.3rem,7vw,7.4rem)] font-medium leading-[0.9] tracking-[-0.065em]">Make the next useful action easier to see.</h2>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-[#F2EEE6]/65">Currently based between Taiwan and Hong Kong, making space for family and considering the next useful contribution — beginning a new build, joining a thoughtful team, or helping a founder turn an ambiguous idea into a product people can test.</p>
+            <h2 className="font-display text-[clamp(3.3rem,7vw,7.4rem)] font-medium leading-[0.9] tracking-[-0.065em]">What should we make better next?</h2>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-[#F2EEE6]/65">I’m currently exploring ideas around nutrition and running, while staying open to what comes next — starting something new, joining a thoughtful team, or helping a founder turn an ambiguous idea into a product people can actually use.<br /><br />Based between Taipei and London, with a habit of looking well beyond both.</p>
             <div className="mt-11 flex flex-wrap gap-x-8 gap-y-4">
               <a href="mailto:cedric.lam@gmail.com" className="group inline-flex items-center gap-3 border-b border-[#F2EEE6]/50 pb-2 font-mono text-[11px] uppercase tracking-[0.13em] transition-colors hover:border-[#6E70A8] hover:text-[#B5B6DD]"><Mail className="h-4 w-4" /> cedric.lam@gmail.com</a>
               <a href="https://www.linkedin.com/in/lamcedric/" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-3 border-b border-[#F2EEE6]/50 pb-2 font-mono text-[11px] uppercase tracking-[0.13em] transition-colors hover:border-[#6E70A8] hover:text-[#B5B6DD]"><ExternalLink className="h-4 w-4" /> LinkedIn</a>
