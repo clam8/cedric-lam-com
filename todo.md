@@ -209,3 +209,11 @@
 - [x] Layers 선택 시트 사이의 세로 간격을 소폭 줄인다.
 - [x] 바깥 모서리 라운드와 겹친 시트 구조를 유지한다.
 - [x] 데스크톱과 모바일에서 압축된 시트 리듬을 확인한다.
+
+## Workbench NutriCue 추가 및 Sleep 재분류
+
+- [x] Workbench 최상단에 01 — NUTRITION / NutriCue 프로젝트를 추가한다.
+- [x] NutriCue의 제목·설명·상세 본문을 제공된 내용으로 반영한다.
+- [x] 기존 Health 프로젝트를 04 — SLEEP으로 바꾼다.
+- [x] 이후 Workbench 프로젝트 인덱스를 새 순서에 맞춰 갱신한다.
+- [x] NutriCue와 Sleep 선택 전환, 상세 캔버스 라벨을 확인한다.

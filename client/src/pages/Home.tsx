@@ -28,6 +28,16 @@ const roomLinks = [
 
 const projects = [
   {
+    tag: "Nutrition",
+    name: "NutriCue",
+    title: "Make healthier food choices easier to make — and understand.",
+    short: "Turning confusing food choices into small learning moments that stick.",
+    body:
+      "Food labels can turn an everyday shopping decision into a confusing one. NutriCue helps you understand what’s in front of you, make a more health-conscious choice on the spot, and turn that moment into something you’ll remember for the next one.",
+    roles: "",
+    accent: "bg-[#FBF7AC]",
+  },
+  {
     tag: "Learning",
     name: "Tick. Done.",
     title: "Make useful knowledge easier to absorb.",
@@ -48,7 +58,7 @@ const projects = [
     accent: "bg-[#94A1B2]",
   },
   {
-    tag: "Health",
+    tag: "Sleep",
     name: "Sleep analysis platform",
     title: "Notice sleep problems in ordinary life, not only in a lab.",
     short: "Multi-night wearable data, interpreted for earlier awareness.",
@@ -360,7 +370,7 @@ export default function Home() {
                 <h3 className="mt-10 font-display text-[clamp(2.3rem,4vw,4rem)] leading-[0.98] tracking-[-0.055em]">{projects[activeProject].name}</h3>
                 <p className="mt-5 font-display text-xl leading-7 text-[#F1F4FA]">{projects[activeProject].short}</p>
                 <p className="mt-6 text-[15px] leading-7 text-[#F8FAFC]/65">{projects[activeProject].body}</p>
-                <div className="mt-auto pt-10 font-mono text-[10px] uppercase tracking-[0.15em] text-[#F8FAFC]/45">{projects[activeProject].roles}</div>
+                {projects[activeProject].roles ? <div className="mt-auto pt-10 font-mono text-[10px] uppercase tracking-[0.15em] text-[#F8FAFC]/45">{projects[activeProject].roles}</div> : null}
               </div>
             </motion.div>
           </div>
