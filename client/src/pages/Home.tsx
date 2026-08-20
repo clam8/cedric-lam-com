@@ -34,7 +34,7 @@ const projects = [
     short: "Turning confusing food choices into small learning moments that stick.",
     body:
       "Food labels can turn an everyday shopping decision into a confusing one. NutriCue helps you understand what’s in front of you, make a more health-conscious choice on the spot, and turn that moment into something you’ll remember for the next one.",
-    roles: "",
+    roles: "Founder",
     accent: "bg-[#FBF7AC]",
   },
   {
@@ -94,19 +94,19 @@ const layers = [
     title: "Cultures + languages",
     note: "Notice context before assuming universality.",
     expanded:
-      "A childhood in Hong Kong, formative years in Canada, work across Korea and the UK, an MBA in France and Singapore, and life now centred in Taiwan.",
+      "A childhood in Hong Kong, formative years in Canada, work across Korea and the UK, an MBA in France and Singapore, and life now centred in Taiwan with regular bounces to London and Toronto.",
   },
   {
     title: "Engineering depth",
     note: "Understand constraints without letting technology dictate the product.",
     expanded:
-      "From bootloaders and mobile systems to native apps, cloud architecture, and AI products — technical depth makes trade-offs visible earlier.",
+      "From bootloaders and mobile systems to native apps, protocols, bluetooth wearables, cloud architecture, and AI products — technical depth makes trade-offs visible earlier.",
   },
   {
     title: "Product + design",
-    note: "Decide what should be built, then make it learnable.",
+    note: "Focus on the users and make beautiful experiences that stick.",
     expanded:
-      "The energy is in turning an observed problem into a coherent experience, then narrowing it into something a team can actually make and learn from.",
+      "The energy is in turning an observed problem into a coherent experience, then narrowing it into something a team can actually make and learn from.  Add doses of delightful surprises along the way.",
   },
   {
     title: "Business + incentives",
@@ -134,7 +134,7 @@ const notes = [
   {
     category: "Agency",
     text: "How do we build technology that increases human agency without consuming our attention?",
-    breaks: ["Engagement metrics often reward time spent rather than user intent.", "The logic behind ranking is rarely legible or configurable to the person affected by it.", "The cost of distraction is carried by the user, not by the system that benefits from it."],
+    breaks: ["Engagement metrics often reward time spent rather than user intent.", "The logic behind ranking is rarely transparent or configurable to the end users.", "The system extracts value at the expense of the user's attention and agency. Attention is the absolute scarce resoure"],
   },
   {
     category: "Health",
