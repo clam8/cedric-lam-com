@@ -225,3 +225,21 @@
 - [x] 다크 Hello 섹션에서 줄바꿈과 대비를 확인한다.
 
 > 검증 기록: 데스크톱 다크 Hello 캔버스에서 새 제목은 두 줄로 안정적으로 읽히며, 두 단락의 본문·연락처·우측 정렬 워드마크가 충분한 대비와 여백을 유지한다.
+
+## 기존 GitHub 저장소 연결
+
+- [x] GitHub 연결 구성과 `clam8/cedric-lam-com` 저장소 접근 권한을 확인한다.
+- [x] 원격 저장소 이력과 현재 웹 프로젝트의 이력을 비교해 안전한 동기화 방식을 결정한다.
+- [x] 현재 프로젝트를 기존 GitHub 저장소에 연결하고 소스를 동기화한다.
+- [x] 원격 URL과 최신 커밋 상태를 검증한다.
+
+> 동기화 기록: `github` 원격을 `https://github.com/clam8/cedric-lam-com.git`으로 설정하고, 현재 `main` 이력 350개 객체를 GitHub의 새 `main` 브랜치로 푸시했다. 저장소 기본 브랜치는 `main`으로 확인됐다.
+
+## GitHub 직접 변경 가져오기
+
+- [x] GitHub `main`의 새 커밋과 현재 프로젝트 이력을 비교한다.
+- [x] 충돌 없이 최신 GitHub 변경을 현재 프로젝트에 병합한다.
+- [x] 변경된 문구와 웹 렌더링을 확인한다.
+- [x] 동기화 결과를 사용자에게 보고한다.
+
+> 동기화 기록: GitHub 커밋 `22b00c5`의 6개 문구 변경을 현재 프로젝트에 병합했다. NutriCue의 Founder 역할, Layers 설명과 Product + design 문구, Margin Notes의 Agency ‘What’s broken’ 문구가 렌더링에 반영됐고 TypeScript 검사를 통과했다.
